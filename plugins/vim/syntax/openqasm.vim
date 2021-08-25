@@ -118,7 +118,7 @@ syntax region qasmIndex matchgroup=qasmOperator start=#\v\[# end=#\v\]# transpar
 " statements to be matched correctly, when the test includes a function call.
 syntax region qasmParams start="(" end=")" transparent contained
 syntax region qasmDesignator start=#\v\[# end=#\v\]# transparent contained
-    \ contains=qasmOperator,qasmInteger,qasmReal,qasmIdentifier nextgroup=qasmParams skipwhite skipempty
+    \ contains=qasmType,qasmOperator,qasmInteger,qasmReal,qasmIdentifier nextgroup=qasmParams skipwhite skipempty
 
 " General keywords.
 syntax keyword qasmInclude include
@@ -149,7 +149,7 @@ else
     " The current OpenQASM 3 grammar has 'creg' behave like other classical
     " types (i.e. with the designator immediately after the type name), even
     " though this clashes with OpenQASM 2.
-    syntax keyword qasmType bit qubit int uint float fixed bool angle duration stretch creg
+    syntax keyword qasmType bit qubit int uint float fixed bool angle duration stretch complex
         \ nextgroup=qasmDesignator skipwhite skipempty
     syntax keyword qasmIO input output
     syntax keyword qasmBuiltinQuantum durationof box
